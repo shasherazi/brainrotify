@@ -3,6 +3,9 @@
   "name": "brainrotify",
   "version": "1.0",
   "description": "replace random words in a webpage with brainrot",
+  "icons": {
+    "48": "brainrot.png"
+  },
   "permissions": [
     "activeTab",
     "storage"
