@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "brainrotify",
+  "version": "1.0",
+  "description": "replace random words in a webpage with brainrot",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "brainrotify"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "compromise.js",
+        "brainrotify.js"
+      ]
+    }
+  ]
+}

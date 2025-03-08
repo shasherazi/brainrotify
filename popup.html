@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      width: 250px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+
+    .slider-container {
+      margin: 15px 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+    }
+
+    #percentage-value {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Gen Z Word Replacer</h2>
+
+  <div class="slider-container">
+    <label for="percentage-slider">brainrotify</label>
+    <input type="range" id="percentage-slider" min="0" max="100" value="40">
+    <div>Current: <span id="percentage-value">10</span>%</div>
+  </div>
+
+  <button id="apply-button">Apply to Page</button>
+
+  <script src="brainrotify.js"></script>
+</body>
+
+</html>
