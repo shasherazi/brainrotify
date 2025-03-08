@@ -75,6 +75,17 @@ function brainrotify(element, percentage = 10) {
   });
 }
 
+function shouldSkipElement(element) {
+  if (element.closest('form')) return true;
+  if (element.closest('code, pre')) return true;
+
+  if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') return true;
+
+  if (!element.textContent.trim()) return true;
+
+  return false;
+}
+
 const paras = document.querySelectorAll('p');
 document.addEventListener('DOMContentLoaded', function() {
   const slider = document.getElementById('percentage-slider');
@@ -115,9 +126,17 @@ document.addEventListener('DOMContentLoaded', function() {
 browser.runtime.onMessage.addListener(function(message) {
   if (message.action === "applyReplacement") {
     const percentage = parseInt(message.percentage);
-    const paras = document.querySelectorAll('p');
-    paras.forEach(para => {
-      brainrotify(para, percentage);
+
+    const textElements = document.querySelectorAll(
+      'p, h1, h2, h3, h4, h5, h6, li, td, th, span, div:not(:has(>*)), a, label, button, figcaption'
+    );
+
+    textElements.forEach(element => {
+      if (shouldSkipElement(element)) {
+        return;
+      }
+
+      brainrotify(element, percentage);
     });
   }
 });
